@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Disease Detection System</title>
+     <style>
+         body {
+            background-image: url('http://127.0.0.1:8887/paddy.jpg');
+            background-repeat: no-repeat;
+            background-size: 1920px 1080px;
+            
+
+         }
+        .button {
+        background-color: #00008B; /* blue*/
+        border: solid skyblue;
+        color: skyblue;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-style:italic;
+        margin: 1px 1px;
+        cursor: pointer;
+        }
+
+        .button1 {border-radius: 24px;}
+        .button2 {border-radius: 24px;}
+
+      </style>
+    <style>
+         .UPbutton {
+        background-color: #87ceeb; /* blue*/
+        border: solid;
+        color: blue;
+        padding: 0px;
+        text-align: right;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-style:bold;
+        margin: 1px 1px;
+        cursor: pointer;
+
+        }
+        .UPbutton1 {border-radius: 24px;}
+    </style>
+
+
+</head>
+<body>
+
+<h1 style="font-family:georgia,garamond,serif;font-size:80px;font-style:italic;color:darkblue;">Plant Disease Detection System </h1>
+<form action="/" method="POST" enctype="multipart/form-data">
+    <br><br>
+    <label style="font-size:25px;font-style:bold;color:darkblue"for="image">UPLOAD IMAGE SAMPLE :</label>
+
+    <input type="file" class="UPbutton UPbutton1" name="image" id="image" />
+
+    <br><br>
+    <button type="submit" class="button button1">Get Result</button>
+
+
+ </form>
+<button  class="button button2" name="reset" id="reset">Clear</button>
+<br>
+
+<div class="results">
+{% if op=="Healthy"%}
+    <h1 style="font-size:40px;font-style:bold;">Result : </h1>
+    <h10 style="font-size:60px;font-style:bold;color:red">{{op}}</h10>
+    {% elif op=="Powdery"%}
+    <h1 style="font-size:40px;font-style:bold;">Result : </h1>
+    <h10 style="font-size:60px;font-style:bold;color:darkgreen">{{op}}</h10>
+    {% elif op=="Rust"%}
+    <h1 style="font-size:40px;font-style:bold;">Result : </h1>
+    <h10 style="font-size:60px;font-style:bold;color:darkgreen">{{op}}</h10>
+    {% else %}
+    <br>
+    <h10 style="font-size:20px;font-style:oblique;">{{op}}</h10>
+    {% endif %}
+</div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+ <script>
+   var results = document.querySelector(".results");
+   var input = document.querySelector(".custom-file-input");
+    const element = document.getElementById("reset");
+    element.addEventListener("click", myFunction);
+
+    function myFunction() {
+
+     results.innerHTML="";
+     input.value="";
+
+    }
+  </script>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Malaria Detection </title>
+
+</head>
+
+
+<body background="backg.jpg">
+ <h1 style="color:blue;font-size:50px;">Malaria Detection </h1>
+
+ <form action="/" method="POST" enctype="multipart/form-data">
+      <label>Upload Sample : </label><br><br>
+     <input type="file" class="custom-file-input" name="image" id="image">
+    <button type="submit" class="btn btn-primary">Get result </button>
+ </form>
+<br>
+ <p style="font-size:48px;">Result : {{op}}</p>
+</body>
+</html>
